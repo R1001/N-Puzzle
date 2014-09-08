@@ -9,7 +9,6 @@ BEGINSCHERM
 - Het eerste scherm na het openen van de app bevat een overzicht met afbeeldingen waar de gebruiker uit kan kiezen om mee te gamen.
 - De afbeeldingen zijn vierkant, evenals de vakjes waarin de afbeelding wordt onderverdeeld voor de puzzel.
 - Vervolgens wordt 3 seconden de afbeelding getoond (verdeeld in vakjes) zoals de gebruiker deze moet oplossen, met rechtsonder een gat.
-- 
 
 PUZZEL
 - Daarna volgt automatisch de easy-puzzel met de gekozen afbeelding zo groot mogelijk. 
