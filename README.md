@@ -28,5 +28,4 @@ MENU
 
 AFSLUITEN APP
 - Verandering van level moet onthouden worden voor de volgende keren dat de app of een nieuwe puzzel wordt gestart.
-- Bij het afsluiten van de app moet de laatste toestand van de app onthouden worden (afbeelding, level, voorkeur, puzzeltoestand en aantal moves) voor de volgende keer dat de app gestart wordt
-
+- Bij het afsluiten van de app moet de laatste toestand van de app onthouden worden (afbeelding, level, voorkeur, puzzeltoestand en aantal moves) voor de volgende keer dat de app gestart wordt.
