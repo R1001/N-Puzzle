@@ -21,8 +21,7 @@ PUZZEL
 MENU
 - Alleen tijdens het puzzelen kan de gebruiker een menu openen via de MENU-button op het Android-apparaat.
 - Het menu bevat:
-  * Change level (game begint opnieuw, oplossing wordt getoond in een ander level en na 3 seconden begint de game)
-  * Preference level (huidig level als voorkeur instellen d.m.v. een vinkje)
+  * Change level (er verschijnt een keuze tussen Easy, Medium en Hard met een vinkje om je voorkeur in te stellen; de oplossing wordt getoond in het gekozen level en na 3 seconden begint de game)
   * Reset (de puzzel wordt teruggezet naar de beginstand, eventueel voorafgaand aan een waarschuwing)
   * Quit game (ga terug naar beginscherm)
 
