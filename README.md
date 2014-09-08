@@ -1,6 +1,8 @@
 N-Puzzle
 ========
 
+De N-Puzzle is een spel waarbij een afbeelding door elkaar wordt gehusseld en de gebruiker de originele afbeelding moet zien te krijgen door de vakjes te verschuiven naar de juiste plek.
+
 ALGEMEEN
 - N is het aantal vakjes min 1, vanwege het gat dat nodig is om de vakjes te kunnen verschuiven.
 - Drie levels: Easy (3x3; n=8), Medium (4x4; n=15) en Hard (5x5; n=24).
