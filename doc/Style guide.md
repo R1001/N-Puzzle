@@ -44,8 +44,9 @@ Based on CS50 style guide: https://manual.cs50.net/style/
       
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// method 3      
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
-* Maak gebruik van _access modifiers_ voorafgaand aan **class** (http://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html):
+* Maak eventueel gebruik van _access modifiers_ voorafgaand aan **class** (http://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html):
   - <table>
+	<th>Toegankelijkheid/zichtbaarheid van class</th>
 	<tr>
 		<td><b>Modifier</b></td>
 		<td><b>Class</b></td>
