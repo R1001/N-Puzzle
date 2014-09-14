@@ -31,17 +31,35 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 * Accolades (curly braces) moeten recht onder elkaar staan (zoals hierboven).
 * Bij iedere regel binnen de accolades moet ingesprongen worden met 1 tab.     
 
-**Loops:***
+**Loops:**
 * do     
-{
+{    
 	// execute these instructions one time under given circumstances      
-}
+}    
 while();
 * for()     
-{
-	// execute these instructions for given circumstances
+{    
+	// execute these instructions for given circumstances     
 }     
 * while()      
-{
+{    
 	// keep executing these instructions under given circumstances      
+}
+
+Statements:
+* if()     
+{
+	// do this     
+}     
+else
+{    
+  	// do this     
+}  
+* try     
+{     
+	// do this       
+}      
+catch()      
+{
+	// do this     
 }
