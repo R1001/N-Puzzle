@@ -3,6 +3,10 @@ Style guide
 Based on CS50 style guide: https://manual.cs50.net/style/
 ---------------------------------------------------------
 
+**Algemene regels:**
+* Accolades (curly braces) van bijvoorbeeld classes, methods, statements en loops die samen de body vormen, moeten recht onder elkaar staan.
+* Bij iedere regel binnen de body moet ingesprongen worden met 1 tab. Bij het gebruik van accolades binnen een body moet opnieuw met een extra tab worden ingesprongen.  
+
 **Comments:**
 * Gebruik commentaar om zo duidelijk mogelijk uit te leggen wat de code impliceert. Doe dat volgens de onderstaande manieren.
 * Top comments:
@@ -25,9 +29,9 @@ Based on CS50 style guide: https://manual.cs50.net/style/
   \* * */    
 
 **Classes:**
-* **public class** ClassName     
+* **public class** [ClassName]     
 {     
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// declarations     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// declarations     
           
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// method 1      
       
@@ -37,12 +41,11 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
 
 **Methods:**
-* public void [object]     
+* **public void** [object]     
 {     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// content     
 }   
-* Accolades (curly braces) moeten recht onder elkaar staan (zoals hierboven).
-* Bij iedere regel binnen de accolades moet ingesprongen worden met 1 tab.    
+
 
 **Loops:**
 * do     
