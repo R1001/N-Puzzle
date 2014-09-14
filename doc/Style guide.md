@@ -11,7 +11,7 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 * Namen van _classes_ en _interfaces_ beginnen _lower case_, maar ieder nieuw woord binnen die naam begint in _upper case_ (bijv. phoneNumber).
 * Namen van _methods_ en variabelen zijn altijd _lower case_.
 * Namen van constanten zijn altijd _upper case_.
-* De punt-komma (;) volgt zonder spatie achter de instructie (bijv. setContentView(R.layout._main_);)
+* De puntkomma (;) volgt zonder spatie achter de instructie (bijv. setContentView(R.layout._main_); ).
        
        
 **Comments (https://manual.cs50.net/style/#comments):**
@@ -96,8 +96,8 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 {     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// content     
 }
-* Gebruik geen spatie voor de haakjes bij _methods_ (bijv. onCreate();).
-* Het koppelen van _methods_ aan _objects_ gebeurt zonder spaties (bijv. object.method();).
+* Gebruik geen spatie voor de haakjes bij _methods_ (bijv. onCreate(); ).
+* Het koppelen van _methods_ aan _objects_ gebeurt zonder spaties (bijv. object.method(); ).
      
 **Loops (https://manual.cs50.net/style/#loops):**
 * **do**     
