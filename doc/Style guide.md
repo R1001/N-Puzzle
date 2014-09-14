@@ -8,6 +8,9 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 * Bij iedere regel binnen de _body_ moet ingesprongen worden met 1 tab. Bij het gebruik van accolades binnen een body moet opnieuw met een extra tab worden ingesprongen. Ieder codeblok wordt zo herkenbaar doordat de inhoud ervan recht onder elkaar staat.
 * Bij vergelijkingen en declaraties wordt rondom _operators_ (zoals <, > en =) een enkele spatie gebruikt (bijv. x < 5 of n == 10). 
 * Tussen ieder codeblok wordt een witregel gehanteerd.
+* Namen van classes en interfaces beginnen _lower case_, maar ieder nieuw woord binnen die naam begint in _upper case_ (bijv. phoneNumber).
+* Namen van _methods_ en variabelen zijn altijd _lower case_.
+* Namen van constanten zijn altijd _upper case_.
 
 **Comments (https://manual.cs50.net/style/#comments):**
 * Gebruik commentaar om zo duidelijk mogelijk uit te leggen wat de code impliceert. 
