@@ -49,16 +49,16 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 
 
 **Loops (https://manual.cs50.net/style/#loops):**
-* do     
+* **do**     
 {    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// execute these instructions one time under given circumstances      
 }    
-while ();
-* for ()     
+**while** ();
+* **for** ()     
 {    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// execute these instructions for given circumstances     
 }     
-* while ()      
+* **while** ()      
 {    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// keep executing these instructions under given circumstances      
 }
@@ -66,40 +66,40 @@ while ();
 
 **Statements:**
 * If-statements (https://manual.cs50.net/style/#conditions)
-- if (condition 1)          
+- **if** (condition 1)          
 {     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
 }     
-else if (condition 2)     
+**else if** (condition 2)     
 {    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
 }     
-else   
+**else**   
 {     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this          
 }  
-* try     
+* **try**     
 {     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this       
 }      
-catch ()      
+**catch** ()      
 {     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
 }
 * Switch-statement (https://manual.cs50.net/style/#switches):
-   - switch (n)     
+   - **switch** (n)     
 {     
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 1:     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**case** 1:     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;     
        
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 2:     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**case** 2:     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;     
        
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 3:     
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**case** 3:     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}    
 * Let op de witregel in switch-statements tussen iedere case.
 * Let ook bij statements op de spatie voor de haakjes.
