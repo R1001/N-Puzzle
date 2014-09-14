@@ -128,7 +128,8 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 {     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this          
 }  
-* **try**     
+* Try-catch block: 
+  - **try**     
 {     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this       
 }      
