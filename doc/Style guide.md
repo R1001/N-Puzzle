@@ -45,44 +45,37 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// method 3      
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
 * Maak gebruik van _access modifiers_ voorafgaand aan **class** (http://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html):
-  - | **Modifier** | **Class** | **Package** | **Subclass** | **World** |      
-    |:------------:|:---------:|:-----------:|:------------:|:---------:|     
-    |   'public'   |     Ja    |     Ja      |      Ja      |     Ja    |      
-    |  'protected' |     Ja    |     Ja      |      Ja      |    Nee    |      
-    |    _geen_    |     Ja    |     Ja      |     Nee      |    Nee    |     
-    |   'private'  |     Ja    |     Nee     |     Nee      |    Nee    |     
-
-<table>
+  - <table>
+	<th>
+		<td>Modifier</td>
+		<td>Class</td>
+		<td>Package</td>
+		<td>Subclass</td>
+		<td>**World</td>
+	</th>
 	<tr>
-		<td>**Modifier**</td>
-		<td>**Class**</td>
-		<td>**Package**</td>
-		<td>**Subclass**</td>
-		<td>**World**</td>
-	</tr>
-	<tr>
-		<td>**public**</td>
+		<td>public</td>
 		<td>Ja</td>
 		<td>Ja</td>
 		<td>Ja</td>
 		<td>Ja</td>
-	</tr>
-	<tr>
-		<td>**public**</td>
-		<td>Ja</td>
-		<td>Ja</td>
-		<td>Ja</td>
-		<td>Nee</td>
-	</tr>
-	<tr>
-		<td>_geen_</td>
-		<td>Ja</td>
-		<td>Ja</td>
-		<td>Nee</td>
-		<td>Nee</td>
 	</tr>
 	<tr>
 		<td>protected</td>
+		<td>Ja</td>
+		<td>Ja</td>
+		<td>Ja</td>
+		<td>Nee</td>
+	</tr>
+	<tr>
+		<td><i>geen</i></td>
+		<td>Ja</td>
+		<td>Ja</td>
+		<td>Nee</td>
+		<td>Nee</td>
+	</tr>
+	<tr>
+		<td>private/td>
 		<td>Ja</td>
 		<td>Nee</td>
 		<td>Nee</td>
