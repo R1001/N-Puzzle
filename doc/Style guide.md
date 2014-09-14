@@ -45,15 +45,15 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// method 3      
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
 * Maak gebruik van _access modifiers_ voorafgaand aan **class** (http://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html):
-  - | **Modifier** | **Class** | **Package** | **Subclass** | **World** |
-    |--------------|-----------|-------------|--------------|-----------|
-    |    public    |     Ja    |     Ja      |      Ja      |     Ja    |
-    |--------------|-----------|-------------|--------------|-----------|
-    |   protected  |     Ja    |     Ja      |      Ja      |    Nee    |
-    |--------------|-----------|-------------|--------------|-----------|
-    |    _geen_    |     Ja    |     Ja      |     Nee      |    Nee    |
-    |--------------|-----------|-------------|--------------|-----------|
-    |    private   |     Ja    |     Nee     |     Nee      |    Nee    |
+  - | **Modifier** | **Class** | **Package** | **Subclass** | **World** |      
+    |--------------|-----------|-------------|--------------|-----------|     
+    |    public    |     Ja    |     Ja      |      Ja      |     Ja    |     
+    |--------------|-----------|-------------|--------------|-----------|     
+    |   protected  |     Ja    |     Ja      |      Ja      |    Nee    |     
+    |--------------|-----------|-------------|--------------|-----------|     
+    |    _geen_    |     Ja    |     Ja      |     Nee      |    Nee    |      
+    |--------------|-----------|-------------|--------------|-----------|     
+    |    private   |     Ja    |     Nee     |     Nee      |    Nee    |     
 
 **Methods (https://manual.cs50.net/style/#functions):**
 * **public void** [object]     
