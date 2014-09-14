@@ -4,6 +4,7 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 ---------------------------------------------------------
 
 **Comments:**
+* Gebruik commentaar om zo duidelijk mogelijk uit te leggen wat de code impliceert. Doe dat volgens de onderstaande manieren.
 * Top comments:
   - /* * * * * * * * * * * * * * * * * *  
    \* [name file]    
@@ -29,7 +30,7 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// content     
 }   
 * Accolades (curly braces) moeten recht onder elkaar staan (zoals hierboven).
-* Bij iedere regel binnen de accolades moet ingesprongen worden met 1 tab.     
+* Bij iedere regel binnen de accolades moet ingesprongen worden met 1 tab.    
 
 **Loops:**
 * do     
@@ -68,3 +69,15 @@ catch ()
 {     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
 }
+* switch (n)     
+{     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 1:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 2:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 3:
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;   
+}    
