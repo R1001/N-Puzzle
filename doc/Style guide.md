@@ -24,6 +24,18 @@ Based on CS50 style guide: https://manual.cs50.net/style/
   \*     
   \* * */    
 
+**Classes:**
+* public class ClassName     
+{ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// declarations     
+          
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// method 1      
+      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// method 2      
+      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// method 3      
+}
+
 **Methods:**
 * public void [object]     
 {     
@@ -82,6 +94,6 @@ catch ()
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 3:     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}    
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}    
 * Let op de witregel in switch-statements tussen iedere case.
 * Let ook bij statements op de spatie voor de haakjes.
