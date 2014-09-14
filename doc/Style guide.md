@@ -53,8 +53,41 @@ Based on CS50 style guide: https://manual.cs50.net/style/
     |   'private'  |     Ja    |     Nee     |     Nee      |    Nee    |     
 
 <table>
-<tr> Modifier
-</tr>
+	<tr>
+		<td>**Modifier**</td>
+		<td>**Class**</td>
+		<td>**Package**</td>
+		<td>**Subclass**</td>
+		<td>**World**</td>
+	</tr>
+	<tr>
+		<td>**public**</td>
+		<td>Ja</td>
+		<td>Ja</td>
+		<td>Ja</td>
+		<td>Ja</td>
+	</tr>
+	<tr>
+		<td>**public**</td>
+		<td>Ja</td>
+		<td>Ja</td>
+		<td>Ja</td>
+		<td>Nee</td>
+	</tr>
+	<tr>
+		<td>_geen_</td>
+		<td>Ja</td>
+		<td>Ja</td>
+		<td>Nee</td>
+		<td>Nee</td>
+	</tr>
+	<tr>
+		<td>protected</td>
+		<td>Ja</td>
+		<td>Nee</td>
+		<td>Nee</td>
+		<td>Nee</td>
+	</tr>
 </table>
 
 **Methods (https://manual.cs50.net/style/#functions):**
