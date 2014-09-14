@@ -87,7 +87,7 @@ catch ()
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
 }
 * Switch-statement (https://manual.cs50.net/style/#switches):
-- switch (n)     
+   - switch (n)     
 {     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 1:     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
