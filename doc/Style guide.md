@@ -5,7 +5,8 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 
 **Algemene regels:**
 * Accolades (curly braces) van bijvoorbeeld classes, methods, statements en loops die samen de body vormen, moeten recht onder elkaar staan.
-* Bij iedere regel binnen de body moet ingesprongen worden met 1 tab. Bij het gebruik van accolades binnen een body moet opnieuw met een extra tab worden ingesprongen.  
+* Bij iedere regel binnen de body moet ingesprongen worden met 1 tab. Bij het gebruik van accolades binnen een body moet opnieuw met een extra tab worden ingesprongen. Ieder codeblok wordt zo herkenbaar doordat de inhoud ervan recht onder elkaar staat.
+* Bij vergelijkingen en declaraties wordt rondom <, > en = een enkele spatie gebruikt. 
 
 **Comments:**
 * Gebruik commentaar om zo duidelijk mogelijk uit te leggen wat de code impliceert. Doe dat volgens de onderstaande manieren.
@@ -31,7 +32,7 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 **Classes:**
 * **public class** [ClassName]     
 {     
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// declarations     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// declarations     
           
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// method 1      
       
@@ -64,11 +65,11 @@ while ();
 * Let op de spatie voor de haakjes.
 
 **Statements:**
-* if ()          
+* if (condition 1)          
 {     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
 }     
-else if ()     
+else if (condition 2)     
 {    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
 }     
