@@ -10,7 +10,8 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 * Tussen ieder codeblok wordt een witregel gehanteerd.
 
 **Comments (https://manual.cs50.net/style/#comments):**
-* Gebruik commentaar om zo duidelijk mogelijk uit te leggen wat de code impliceert. Doe dat volgens de onderstaande manieren.
+* Gebruik commentaar om zo duidelijk mogelijk uit te leggen wat de code impliceert. 
+* Gebruik in ieder geval voor ieder codeblok commentaar om de werking van het codeblok toe te lichten. Doe dat volgens de onderstaande conventies.
 * Top comments:
   - /* * * * * * * * * * * * * * * * * *  
    \* [name file]    
