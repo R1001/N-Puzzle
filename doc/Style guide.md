@@ -54,28 +54,28 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 		<td><b>World</b></td>
 	</tr>
 	<tr>
-		<td>public</td>
+		<td><b>public</b></td>
 		<td>Ja</td>
 		<td>Ja</td>
 		<td>Ja</td>
 		<td>Ja</td>
 	</tr>
 	<tr>
-		<td>protected</td>
+		<td><b>protected</b></td>
 		<td>Ja</td>
 		<td>Ja</td>
 		<td>Ja</td>
 		<td>Nee</td>
 	</tr>
 	<tr>
-		<td><i>geen</i></td>
+		<td><b><i>geen</i></b></td>
 		<td>Ja</td>
 		<td>Ja</td>
 		<td>Nee</td>
 		<td>Nee</td>
 	</tr>
 	<tr>
-		<td>private</td>
+		<td><b>private</b></td>
 		<td>Ja</td>
 		<td>Nee</td>
 		<td>Nee</td>
