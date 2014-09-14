@@ -51,7 +51,7 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 		<td>Class</td>
 		<td>Package</td>
 		<td>Subclass</td>
-		<td>**World</td>
+		<td>World</td>
 	</th>
 	<tr>
 		<td>public</td>
@@ -75,7 +75,7 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 		<td>Nee</td>
 	</tr>
 	<tr>
-		<td>private/td>
+		<td>private</td>
 		<td>Ja</td>
 		<td>Nee</td>
 		<td>Nee</td>
