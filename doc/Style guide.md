@@ -52,6 +52,11 @@ Based on CS50 style guide: https://manual.cs50.net/style/
     |    _geen_    |     Ja    |     Ja      |     Nee      |    Nee    |     
     |   'private'  |     Ja    |     Nee     |     Nee      |    Nee    |     
 
+<table>
+<tr> Modifier
+</tr>
+</table>
+
 **Methods (https://manual.cs50.net/style/#functions):**
 * **public void** [object]     
 {     
