@@ -116,7 +116,7 @@ Based on CS50 style guide: https://manual.cs50.net/style/
        
 **Statements:**
 * If-statements (https://manual.cs50.net/style/#conditions)
-- **if** (condition 1)          
+  - **if** (condition 1)          
 {     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
 }     
