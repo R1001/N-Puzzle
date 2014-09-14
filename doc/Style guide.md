@@ -4,7 +4,7 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 ---------------------------------------------------------
 
 **Algemene regels:**
-* Accolades (curly braces) van bijvoorbeeld _classes, methods, statements_ en _loops_ die samen de _body_ vormen, moeten recht onder elkaar staan. Iedere accolade staat afzonderlijk op een regel.
+* Accolades (_curly braces_) van bijvoorbeeld _classes, methods, statements_ en _loops_ die samen de _body_ vormen, moeten recht onder elkaar staan. Iedere accolade staat afzonderlijk op een regel.
 * Bij iedere regel binnen de _body_ moet ingesprongen worden met 1 tab. Bij het gebruik van accolades binnen een body moet opnieuw met een extra tab worden ingesprongen. Ieder codeblok wordt zo herkenbaar doordat de inhoud ervan recht onder elkaar staat.
 * Bij vergelijkingen en declaraties wordt rondom _operators_ (zoals <, > en =) een enkele spatie gebruikt (bijv. x < 5 of n == 10). 
 * Tussen ieder codeblok wordt een witregel gehanteerd.
@@ -29,7 +29,8 @@ Based on CS50 style guide: https://manual.cs50.net/style/
   - /* * *   
   \* [comments]     
   \* [comments]        
-  \* * */    
+  \* * */   
+* Let op de enkele spatie na een asterisk (*) en na een slash (/). 
 
 **Classes:**
 * **public class** [ClassName]     
