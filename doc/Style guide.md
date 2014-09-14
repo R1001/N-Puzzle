@@ -26,7 +26,7 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 **Methods:**
 * public void [object]     
 {     
-	// content
+	// content     
 }   
 * Accolades (curly braces) moeten recht onder elkaar staan (zoals hierboven).
 * Bij iedere regel binnen de accolades moet ingesprongen worden met 1 tab.     
@@ -46,20 +46,20 @@ while();
 	// keep executing these instructions under given circumstances      
 }
 
-Statements:
-* if()     
-{
-	// do this     
+**Statements:**
+* if()          
+{     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
 }     
-else
+else     
 {    
-  	// do this     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
 }  
 * try     
 {     
-	// do this       
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this       
 }      
 catch()      
-{
-	// do this     
+{     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
 }
