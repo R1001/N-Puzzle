@@ -25,16 +25,16 @@ Based on CS50 style guide: https://manual.cs50.net/style/
   \* * */    
 
 **Classes:**
-* public class ClassName     
-{ 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// declarations     
+* **public class** ClassName     
+{     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// declarations     
           
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// method 1      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// method 1      
       
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// method 2      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// method 2      
       
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// method 3      
-}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// method 3      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
 
 **Methods:**
 * public void [object]     
