@@ -4,9 +4,9 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 ---------------------------------------------------------
 
 **Algemene regels:**
-* Accolades (curly braces) van bijvoorbeeld classes, methods, statements en loops die samen de body vormen, moeten recht onder elkaar staan. Iedere accolade staat afzonderlijk op een regel.
-* Bij iedere regel binnen de body moet ingesprongen worden met 1 tab. Bij het gebruik van accolades binnen een body moet opnieuw met een extra tab worden ingesprongen. Ieder codeblok wordt zo herkenbaar doordat de inhoud ervan recht onder elkaar staat.
-* Bij vergelijkingen en declaraties wordt rondom <, > en = een enkele spatie gebruikt (bijv. x < 5 of n == 10). 
+* Accolades (curly braces) van bijvoorbeeld _classes, methods, statements_ en _loops_ die samen de _body_ vormen, moeten recht onder elkaar staan. Iedere accolade staat afzonderlijk op een regel.
+* Bij iedere regel binnen de _body_ moet ingesprongen worden met 1 tab. Bij het gebruik van accolades binnen een body moet opnieuw met een extra tab worden ingesprongen. Ieder codeblok wordt zo herkenbaar doordat de inhoud ervan recht onder elkaar staat.
+* Bij vergelijkingen en declaraties wordt rondom _operators_ (zoals <, > en =) een enkele spatie gebruikt (bijv. x < 5 of n == 10). 
 * Tussen ieder codeblok wordt een witregel gehanteerd.
 
 **Comments (https://manual.cs50.net/style/#comments):**
@@ -103,5 +103,5 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**break**;   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}    
-* Let op de witregel in switch-statements tussen iedere case.
-* Let ook bij statements op de spatie voor de haakjes.
+* Let op de witregel in _switch-statements_ tussen iedere _case_.
+* Let ook bij _statements_ op de spatie voor de haakjes.
