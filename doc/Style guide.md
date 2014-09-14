@@ -46,13 +46,13 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
 * Maak gebruik van _access modifiers_ voorafgaand aan **class** (http://docs.oracle.com/javase/tutorial/java/javaOO/accesscontrol.html):
   - <table>
-	<th>
-		<td>Modifier</td>
-		<td>Class</td>
-		<td>Package</td>
-		<td>Subclass</td>
-		<td>World</td>
-	</th>
+	<tr>
+		<td><b>Modifier</b></td>
+		<td><b>Class</b></td>
+		<td><b>Package</b></td>
+		<td><b>Subclass</b></td>
+		<td><b>World</b></td>
+	</tr>
 	<tr>
 		<td>public</td>
 		<td>Ja</td>
