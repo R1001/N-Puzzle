@@ -11,7 +11,8 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 * Namen van _classes_ en _interfaces_ beginnen _lower case_, maar ieder nieuw woord binnen die naam begint in _upper case_ (bijv. phoneNumber).
 * Namen van _methods_ en variabelen zijn altijd _lower case_.
 * Namen van constanten zijn altijd _upper case_.
-
+       
+       
 **Comments (https://manual.cs50.net/style/#comments):**
 * Gebruik commentaar om zo duidelijk mogelijk uit te leggen wat de code impliceert. 
 * Gebruik in ieder geval voor ieder codeblok commentaar om de werking van het codeblok toe te lichten. Doe dat volgens de onderstaande conventies.
@@ -36,6 +37,7 @@ Based on CS50 style guide: https://manual.cs50.net/style/
   \* * */   
 * Let op de enkele spatie na een asterisk (*) en na een slash (/). 
       
+       
 **Classes:**
 * **public class** [ClassName]     
 {     
@@ -86,12 +88,14 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 		<td>Nee</td>
 	</tr>
 </table>
-      
-**Methods (https://manual.cs50.net/style/#functions):**
+           
+       
+**Methods and objects (https://manual.cs50.net/style/#functions):**
 * **public void** [object]     
 {     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// content     
-}   
+}
+* Gebruik geen spatie voor de haakjes bij _objects_ (bijv. onCreate();).   
      
 **Loops (https://manual.cs50.net/style/#loops):**
 * **do**     
@@ -109,6 +113,7 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 }
 * Let op de spatie voor de haakjes.
      
+       
 **Statements:**
 * If-statements (https://manual.cs50.net/style/#conditions)
 - **if** (condition 1)          
