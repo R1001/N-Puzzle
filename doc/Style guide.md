@@ -8,7 +8,7 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 * Bij iedere regel binnen de body moet ingesprongen worden met 1 tab. Bij het gebruik van accolades binnen een body moet opnieuw met een extra tab worden ingesprongen. Ieder codeblok wordt zo herkenbaar doordat de inhoud ervan recht onder elkaar staat.
 * Bij vergelijkingen en declaraties wordt rondom <, > en = een enkele spatie gebruikt. 
 
-**Comments:**
+**Comments (https://manual.cs50.net/style/#comments):**
 * Gebruik commentaar om zo duidelijk mogelijk uit te leggen wat de code impliceert. Doe dat volgens de onderstaande manieren.
 * Top comments:
   - /* * * * * * * * * * * * * * * * * *  
@@ -41,14 +41,14 @@ Based on CS50 style guide: https://manual.cs50.net/style/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// method 3      
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
 
-**Methods:**
+**Methods (https://manual.cs50.net/style/#functions):**
 * **public void** [object]     
 {     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// content     
 }   
 
 
-**Loops:**
+**Loops (https://manual.cs50.net/style/#loops):**
 * do     
 {    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// execute these instructions one time under given circumstances      
@@ -65,7 +65,8 @@ while ();
 * Let op de spatie voor de haakjes.
 
 **Statements:**
-* if (condition 1)          
+* If-statements (https://manual.cs50.net/style/#conditions)
+- if (condition 1)          
 {     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
 }     
@@ -85,7 +86,8 @@ catch ()
 {     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
 }
-* switch (n)     
+* Switch-statement (https://manual.cs50.net/style/#switches):
+- switch (n)     
 {     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 1:     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// do this     
