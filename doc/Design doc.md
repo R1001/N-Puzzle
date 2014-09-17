@@ -43,7 +43,6 @@ Design doc
   - MenuInflater
   - View
   - ViewGroup
-  -
 * android.widget
   - AdapterView<>
   - BaseAdapter
