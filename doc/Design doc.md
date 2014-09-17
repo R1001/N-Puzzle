@@ -9,8 +9,9 @@ Design doc
   - setAdapter(**new** ImageAdapter(**this**);
   - setOnItemClickListener(**new** OnItemClickListener(       
     {      
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**public void** onItemClick(AdapterView<?>  )
-    });        
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**public void** onItemClick(AdapterView<?>  )        
+    }      
+    );        
 
 * **public class** ImageView **extends** BaseAdapter
   - **public** ImageAdapter(Context c)
