@@ -46,10 +46,10 @@ Design doc
     * Blank tile is black image.
     * bitmap.recycle();
 * Check position of tiles:
-  - ** public int** getCurrentRow(): **return** current row;
-  - ** public void** setCurrentRow(**int** row): **return** current row;
-  - ** public int** getCurrentCol(): **return** current col;
-  - ** public void** setCurrentCol(**int** col): **return** current row;
+  - **public int** getCurrentRow(): **return** current row;
+  - **public void** setCurrentRow(**int** row): **return** current row;
+  - **public int** getCurrentCol(): **return** current col;
+  - **public void** setCurrentCol(**int** col): **return** current row;
   - Compare row and col int with solution-ints with if-statement: if correct, display winning message.
   - Blank tile is separate black image which has to replace an original part of the selected image.
 * Start dialog when puzzle is solved:
