@@ -37,3 +37,19 @@ Design doc
 * android.app
   - Activity
   - Dialog
+* android.view
+  - AbsSavedState
+  - Gravity
+  - MenuInflater
+  - View
+  - ViewGroup
+  -
+* android.widget
+  - AdapterView<>
+  - BaseAdapter
+  - Button
+  - CheckBox
+  - GridView
+  - LinearLayout
+  - PopupWindow
+  - RelativeLayout
