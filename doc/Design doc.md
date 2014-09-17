@@ -62,6 +62,7 @@ Design doc
 * Load data: **public void** onResume()
   - **super**.onResume();
   - SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+  - Use level-preferences.
 * Save data: **public void** onPause()
   - **super**.onPause();
   - SharedPreferences preferences = getPreferences(MODE_PRIVATE);
