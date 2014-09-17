@@ -8,7 +8,7 @@ Design doc
   - (GridView)findViewById(R.id.gridview); (use Gridview in xml-file for image thumbnails).
   - gridview.setAdapter(**new** ImageAdapter(**this**);        
 
-* **public class** ImageView **extends** BaseAdapter
+* GridView code: **public class** ImageView **extends** BaseAdapter
   - **public** ImageAdapter(Context c)
   - **public int** getCount()
     * **return** mThumbIds.length;
@@ -36,7 +36,7 @@ Design doc
 * ImageView img = (ImageView)findViewById(R.id._image_);
 * **public class** CountDown **extends** CountDownTimer
   - **public** CountDown(**long** start, **long** interval)
-    * super(3000, 1000);
+    * super(3000, 1000); (= 3 seconds countdown)
   - **public void** onFinish() 
     * BitmapFactory.decodeResource(Resources r, **int** id)
     * **int** SCREEN_HEIGHT = getResources().getDisplayMetrics().pixelHeight;
@@ -52,6 +52,10 @@ Design doc
   - **int** id = item.getItemId();
   - **return super**.onOptionsItemSeleted(item);
 * Start dialog when "Change level" in menu is tapped.
+  - 3 buttons: EASY, MEDIUM & HARD
+  - Checkbox: "Remember this level: "
+* Stop current puzzle-activity (use onStop()) and restart puzzle-activity when "Reset" in menu is tapped.
+* Stop current puzzle-activity (use onStop()) and start ImageSelection-activiy when "Quit" in menu is tapped.
 
 **Android APIs + classes:**
 * android
@@ -78,5 +82,4 @@ Design doc
   - CheckBox
   - GridView
   - LinearLayout
-  - PopupWindow
   - RelativeLayout
