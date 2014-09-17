@@ -27,7 +27,7 @@ Design doc
 * gridView.setOnItemClickListener(**new** OnItemClickListener()       
     {      
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**public void** onItemClick(AdapterView<?>  parent, View v, **int** position, **long** id)     
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Intent puzzle = **new** Intent(mActivity, ActivityToCall.class);     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Intent puzzle = **new** Intent(mActivity, Puzzle.class);     
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mActivity.startActivity(puzzle);      
     }      
     );
@@ -39,9 +39,11 @@ Design doc
     * super(3000, 1000); (= 3 seconds countdown)
   - **public void** onFinish() 
     * BitmapFactory.decodeResource(Resources r, **int** id)
-    * **int** SCREEN_HEIGHT = getResources().getDisplayMetrics().pixelHeight;
-    * **int** SCREEN_WIDTH = getResources().getDisplayMetrics().pixelWidth;
+    * **int** SCREEN_HEIGHT = **this**.getResources().getDisplayMetrics().pixelHeight;
+    * **int** SCREEN_WIDTH = **this**.getResources().getDisplayMetrics().pixelWidth;
     * Bitmap.createScaledBitmap(Bitmap bitmap, **int** width, **int** height, **boolean** filter)
+    * Divide image in n^2 - 1 tiles: SCREEN_HEIGHT/3 and SCREEN_WIDTH/3 (EASY)
+    * Blank tile is black image
     * bitmap.recycle();
 * SharedPreferences
 * Start dialog when puzzle is solved:
@@ -59,7 +61,7 @@ Design doc
 * Start dialog when "Change level" in menu is tapped.
   - 3 buttons: EASY, MEDIUM & HARD
   - Checkbox: "Remember this level: "
-  - Stop current puzzle-activity (use onStop()) and restart puzzle-activity in selected level.
+  - When button pushed (onClickListener(**this**))stop current puzzle-activity (use onStop()) and restart puzzle-activity (onClick() --> **new** Intent --startActivity(intent)in selected level.
 * Stop current puzzle-activity (use onStop()) and restart puzzle-activity when "Reset" in menu is tapped.
 * Stop current puzzle-activity (use onStop()) and start ImageSelection-activiy when "Quit" in menu is tapped.
 
