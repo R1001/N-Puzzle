@@ -44,6 +44,11 @@ Design doc
     * Bitmap.createScaledBitmap(Bitmap bitmap, **int** width, **int** height, **boolean** filter)
     * bitmap.recycle();
 * SharedPreferences
+* Start dialog when puzzle is solved:
+  - Activity is paused (onPause()).
+  - Display integer for needed moves.
+  - Display congrats-text.
+  - Display button for "New Game" and restart ImageSelection-activity.
 
 **MENU:**
 * **public boolean** onCreateOptionsMenu(Menu menu)
@@ -54,6 +59,7 @@ Design doc
 * Start dialog when "Change level" in menu is tapped.
   - 3 buttons: EASY, MEDIUM & HARD
   - Checkbox: "Remember this level: "
+  - Stop current puzzle-activity (use onStop()) and restart puzzle-activity in selected level.
 * Stop current puzzle-activity (use onStop()) and restart puzzle-activity when "Reset" in menu is tapped.
 * Stop current puzzle-activity (use onStop()) and start ImageSelection-activiy when "Quit" in menu is tapped.
 
