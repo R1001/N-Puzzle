@@ -6,15 +6,7 @@ Design doc
   - **super**.onCreate(savedInstanceState);
   - setContentView(R.layout._main_);
   - (GridView)findViewById(R.id.gridview); (use Gridview in xml-file for image thumbnails).
-  - gridview.setAdapter(**new** ImageAdapter(**this**);
-* **public** MyAdapter(Context context)
-* gridView.setOnItemClickListener(**new** OnItemClickListener()       
-    {      
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**public void** onItemClick(AdapterView<?>  parent, View v, **int** position, **long** id)     
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Intent puzzle = **new** Intent(mActivity, ActivityToCall.class);     
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mActivity.startActivity(puzzle);      
-    }      
-    );        
+  - gridview.setAdapter(**new** ImageAdapter(**this**);        
 
 * **public class** ImageView **extends** BaseAdapter
   - **public** ImageAdapter(Context c)
@@ -32,6 +24,14 @@ Design doc
     * imageView.setImageResource(mThumbIds[position])
     * **return** imageView;
 
+* gridView.setOnItemClickListener(**new** OnItemClickListener()       
+    {      
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**public void** onItemClick(AdapterView<?>  parent, View v, **int** position, **long** id)     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Intent puzzle = **new** Intent(mActivity, ActivityToCall.class);     
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mActivity.startActivity(puzzle);      
+    }      
+    );
+
 **SCREEN 2: Puzzle**
 * ImageView img = (ImageView)findViewById(R.id._image_);
 * **public class** CountDown **extends** CountDownTimer
@@ -44,6 +44,14 @@ Design doc
     * Bitmap.createScaledBitmap(Bitmap bitmap, **int** width, **int** height, **boolean** filter)
     * bitmap.recycle();
 * SharedPreferences
+
+**MENU:**
+* **public boolean** onCreateOptionsMenu(Menu menu)
+  - getMenuInflater().inflater(R.menu._puzzlemenu_, menu);
+* **public boolean** onOptionsItemSelected(MenuItem item)
+  - **int** id = item.getItemId();
+  - **return super**.onOptionsItemSeleted(item);
+* Start dialog when "Change level" in menu is tapped.
 
 **Android APIs + classes:**
 * android
