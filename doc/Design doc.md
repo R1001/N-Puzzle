@@ -43,14 +43,32 @@ Design doc
     * **int** SCREEN_WIDTH = **this**.getResources().getDisplayMetrics().pixelWidth;
     * Bitmap.createScaledBitmap(Bitmap bitmap, **int** width, **int** height, **boolean** filter)
     * Divide image in n^2 - 1 tiles: SCREEN_HEIGHT/3 and SCREEN_WIDTH/3 (EASY)
-    * Blank tile is black image
+    * Blank tile is black image.
     * bitmap.recycle();
-* SharedPreferences
+* Check position of tiles:
+  - ** public int** getCurrentRow(): **return** current row;
+  - ** public void** setCurrentRow(**int** row): **return** current row;
+  - ** public int** getCurrentCol(): **return** current col;
+  - ** public void** setCurrentCol(**int** col): **return** current row;
+  - Compare row and col int with solution-ints with if-statement: if correct, display winning message.
+  - Blank tile is separate black image which has to replace an original part of the selected image.
 * Start dialog when puzzle is solved:
   - Activity is paused (onPause()).
   - Display integer for needed moves.
   - Display congrats-text.
   - Display button for "New Game" and restart ImageSelection-activity.
+
+**SAVING STATE:**
+* Load data: **public void** onResume()
+  - **super**.onResume();
+  - SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+* Save data: **public void** onPause()
+  - **super**.onPause();
+  - SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+  - preferences.edit();
+  - putString("PuzzleLevel", String.valueof(GameLevel));
+  - putString("ImageId", Integer.toString(ImageId);
+  - commit();
 
 **MENU:**
 * **public boolean** onCreateOptionsMenu(Menu menu)
@@ -61,7 +79,7 @@ Design doc
 * Start dialog when "Change level" in menu is tapped.
   - 3 buttons: EASY, MEDIUM & HARD
   - Checkbox: "Remember this level: "
-  - When button pushed (onClickListener(**this**))stop current puzzle-activity (use onStop()) and restart puzzle-activity (onClick() --> **new** Intent --startActivity(intent)in selected level.
+  - When button pushed (onClickListener(**this**)) stop current puzzle-activity (use onStop()) and restart puzzle-activity (onClick() --> **new** Intent --> startActivity(intent)in selected level.
 * Stop current puzzle-activity (use onStop()) and restart puzzle-activity when "Reset" in menu is tapped.
 * Stop current puzzle-activity (use onStop()) and start ImageSelection-activiy when "Quit" in menu is tapped.
 
