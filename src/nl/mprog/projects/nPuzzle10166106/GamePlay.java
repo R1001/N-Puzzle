@@ -1,9 +1,22 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * File:      GamePlay.java
+ * 
+ * Name:      Rick Bijsterveld
+ * Studentnr: 10166106
+ * E-mail:    rickbijsterveld@hotmail.com
+ * 
+ * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 package nl.mprog.projects.nPuzzle10166106;
 
 import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.*;
 import android.os.*;
 import android.widget.*;
 import android.graphics.*;
+import android.content.*;
+import android.app.*;
 
 
 public class GamePlay extends ActionBarActivity
@@ -14,24 +27,14 @@ public class GamePlay extends ActionBarActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gameplay);
-       
-        // manage image array
-        setAdapter(new ArrayAdapter<string>(this, R.layout.gameplay, IMAGES));
+  
+        Intent intent = getIntent();
         
-        // set image in ImageView
-        for (int i = 0; i < 10; i++)
-        {
-        	ImageView puzzle_i = (ImageView)findViewById(R.id.image);
-        	IMAGES[i] = puzzle_i.setImageResource(R.drawable.IMAGES[i]);
-        }
-        
-        BitmapFactory.decodeResource(getResources(), R.drawable.puzzle_0);
-       
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.puzzle_0);
+        ImageView image = (ImageView) findViewById(R.id.main);
         // get display metrics in pixels
         int SCREEN_HEIGHT = this.getResources().getDisplayMetrics().heightPixels;
         int SCREEN_WIDTH = this.getResources().getDisplayMetrics().widthPixels;
-        
-        
         
         Bitmap image_scaled = Bitmap.createScaledBitmap(img, SCREEN_WIDTH, SCREEN_HEIGHT, false);
         
