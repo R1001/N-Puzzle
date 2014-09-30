@@ -21,41 +21,30 @@ import android.app.*;
 
 public class GamePlay extends ActionBarActivity
 {
-	private Bitmap img = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) 
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gameplay);
   
-        Intent intent = getIntent();
+        // find our ImageView in the layout
+        ImageView img = (ImageView)findViewById(R.id.image);
         
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.puzzle_0);
-        ImageView image = (ImageView) findViewById(R.id.main);
-        // get display metrics in pixels
-        int SCREEN_HEIGHT = this.getResources().getDisplayMetrics().heightPixels;
-        int SCREEN_WIDTH = this.getResources().getDisplayMetrics().widthPixels;
+        // retrieve the set of data passed to us by the intent
+        Bundle extras = getIntent().getExtras();
         
-        Bitmap image_scaled = Bitmap.createScaledBitmap(img, SCREEN_WIDTH, SCREEN_HEIGHT, false);
+        // and retrieve the imageToDisplay ID from the extras bundle
+        int resource = (int)extras.getLong("imageToDisplay");
         
-        
-       
-        
-    }
-    
-    static final String[] IMAGES = new String[]
-    {
-    	"puzzle_0",
-    	"puzzle_1",
-    	"puzzle_2",
-    	"puzzle_3",
-    	"puzzle_4",
-    	"puzzle_5",
-    	"puzzle_6",
-    	"puzzle_7",
-    	"puzzle_8",
-    	"puzzle_9"
-    };
-    
+        // set the ImageView to display the specified resource ID
+        img.setImageResource(resource);
 
+        
+        // get display metrics in pixels
+        // int SCREEN_HEIGHT = this.getResources().getDisplayMetrics().heightPixels;
+       // int SCREEN_WIDTH = this.getResources().getDisplayMetrics().widthPixels;
+        
+        // Bitmap image_scaled = Bitmap.createScaledBitmap(img, SCREEN_WIDTH, SCREEN_HEIGHT, false);
+ 
+    }
 }

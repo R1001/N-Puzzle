@@ -13,31 +13,36 @@ package nl.mprog.projects.nPuzzle10166106;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.*;
-import android.os.*;
 import android.widget.*;
-import android.graphics.*;
+import android.widget.AdapterView.OnItemClickListener;
 import android.content.*;
-import android.app.*;
 
-public class ImageSelection extends ActionBarActivity
+public class ImageSelection extends ActionBarActivity implements OnItemClickListener
 {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) 
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         
+        // find our grid and assign our new ImageAdapter class as the adapter for it,
+        // along with an onItemClickListener
         GridView gridview = (GridView)findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
+        gridview.setOnItemClickListener(this);
+    }
         
-        gridview.setOnClickListener(new onItemClickListener()
-        {
-        		public void onItemClick(AdapterView<?> parent, View v, int position, long id)
-        		{
-        			Intent puzzle = new Intent(getActivity(), GamePlay.class);
-        			this.startActivity(puzzle);
-        		}
-        }
-        );     
+    public void onItemClick(AdapterView<?> parent, View v, int position, long id)
+    {
+    	// create the intent to open our GamePlay activity
+        Intent puzzle = new Intent(this, GamePlay.class);
+        	
+        // pass a key:value pair into the 'extra' bundle for the intent so
+        // the activity is made aware which photo was selected
+        puzzle.putExtra("imageToDisplay", id);
+        	
+        // start GamePlay activity
+        startActivity(puzzle);  
     }		
 }
