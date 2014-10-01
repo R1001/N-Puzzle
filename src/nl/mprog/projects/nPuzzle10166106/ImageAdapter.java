@@ -45,7 +45,7 @@ public class ImageAdapter extends BaseAdapter
 		images = new Integer[count];
 		cache = new Bitmap[count];
 		
-		// Try to get the values of each of those fields into the images array
+		// try to get the values of each of those fields into the images array
 		try {
 			for (int i = 0; i < j; i++)
 			{
@@ -89,7 +89,7 @@ public class ImageAdapter extends BaseAdapter
 		{
 			// create a new view
 			imgView = new ImageView(myContext);
-			imgView.setLayoutParams(new GridView.LayoutParams(85, 85));
+			imgView.setLayoutParams(new GridView.LayoutParams(150, 150));
 		}
 		else
 		{

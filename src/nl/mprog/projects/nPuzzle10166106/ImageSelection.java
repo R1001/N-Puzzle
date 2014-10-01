@@ -43,6 +43,9 @@ public class ImageSelection extends ActionBarActivity implements OnItemClickList
         puzzle.putExtra("imageToDisplay", id);
         	
         // start GamePlay activity
-        startActivity(puzzle);  
+        startActivity(puzzle);
+        
+        // close activity
+        finish();
     }		
 }

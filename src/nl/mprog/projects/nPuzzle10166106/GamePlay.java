@@ -10,7 +10,6 @@
 package nl.mprog.projects.nPuzzle10166106;
 
 import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
 import android.view.*;
 import android.os.*;
 import android.widget.*;
@@ -21,6 +20,9 @@ import android.app.*;
 
 public class GamePlay extends ActionBarActivity
 {
+	// amount of time (in seconds) displaying full screen image before divided in pieces
+	private static final int S = 3;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) 
     {
@@ -39,12 +41,15 @@ public class GamePlay extends ActionBarActivity
         // set the ImageView to display the specified resource ID
         img.setImageResource(resource);
 
-        
         // get display metrics in pixels
-        // int SCREEN_HEIGHT = this.getResources().getDisplayMetrics().heightPixels;
-       // int SCREEN_WIDTH = this.getResources().getDisplayMetrics().widthPixels;
+        final int SCREEN_WIDTH = this.getResources().getDisplayMetrics().widthPixels;
+        final int SCREEN_HEIGHT = this.getResources().getDisplayMetrics().heightPixels;
         
-        // Bitmap image_scaled = Bitmap.createScaledBitmap(img, SCREEN_WIDTH, SCREEN_HEIGHT, false);
- 
+        Bitmap img_scaled = Bitmap.createScaledBitmap(img, SCREEN_WIDTH, SCREEN_HEIGHT, false);
+        
+        // sleep for S seconds
+        SystemClock.sleep(S * 1000);
     }
+    
+    
 }
