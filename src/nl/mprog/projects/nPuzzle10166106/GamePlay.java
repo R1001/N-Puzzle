@@ -20,8 +20,6 @@ import android.app.*;
 
 public class GamePlay extends ActionBarActivity
 {
-	// amount of time (in seconds) displaying full screen image before divided in pieces
-	private static final int S = 3;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) 
@@ -37,19 +35,64 @@ public class GamePlay extends ActionBarActivity
         
         // and retrieve the imageToDisplay ID from the extras bundle
         int resource = (int)extras.getLong("imageToDisplay");
-        
-        // set the ImageView to display the specified resource ID
-        img.setImageResource(resource);
 
-        // get display metrics in pixels
-        final int SCREEN_WIDTH = this.getResources().getDisplayMetrics().widthPixels;
-        final int SCREEN_HEIGHT = this.getResources().getDisplayMetrics().heightPixels;
+        // load bitmap
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), resource);
         
-        Bitmap img_scaled = Bitmap.createScaledBitmap(img, SCREEN_WIDTH, SCREEN_HEIGHT, false);
+        // put bitmap in ImageView
+        img.setImageBitmap(bitmap);
         
-        // sleep for S seconds
-        SystemClock.sleep(S * 1000);
+        // get width and height of bitmap
+        int WIDTH = bitmap.getWidth();
+        int HEIGHT = bitmap.getHeight();
+        
+        // define bitmap coordinates
+        int x = 0;
+        int y = 0;
+        
+        // define table
+        TableLayout table = (TableLayout) findViewById(R.id.table);
+       
+        int row, col;
+        
+        // iterate over ImageViews in table
+        for (row = 0; row < 3; row++)
+        {
+        	// define new TableRow
+        	TableRow tr = new TableRow(this);
+        	
+        	for (col = 0; col < 3; col++)
+        	{	
+        		
+        		// divide bitmap in tiles and put them in ImageViews
+        		Bitmap tile = Bitmap.createBitmap(bitmap, x,y, WIDTH/3, HEIGHT/3);
+        		
+        		ImageView imgtile = (ImageView) findViewById(R.id.tile_0);
+        		imgtile.setImageBitmap(tile);
+            	
+        		// add views
+        	    tr.addView(imgtile);
+        	    table.addView(tr);
+        	        
+        	    // declare width and height of tiles
+        	    int tile_width = tile.getWidth();
+        	    int tile_height = tile.getHeight();
+        	        
+        	    // update coordinates for next tiles
+        	    x = x + tile_width;
+        	    y = y + tile_height;
+        	    
+        	    // remove ImageView to make a blank tile
+        	    if (row == 2 && col == 2)
+        	    {
+        	    	tr.removeView(imgtile);
+        	    }
+        	    
+        	    
+        	    
+        	}	
+        }
+        
+        //
     }
-    
-    
 }

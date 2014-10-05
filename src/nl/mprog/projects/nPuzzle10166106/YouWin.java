@@ -14,7 +14,7 @@ public class YouWin extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.gameplay);
+        setContentView(R.layout.youwin);
     }
 
 

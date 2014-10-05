@@ -44,8 +44,5 @@ public class ImageSelection extends ActionBarActivity implements OnItemClickList
         	
         // start GamePlay activity
         startActivity(puzzle);
-        
-        // close activity
-        finish();
     }		
 }
