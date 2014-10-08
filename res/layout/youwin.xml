@@ -1,3 +1,32 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android">
-
-</RelativeLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical">
+	<TextView
+	    android:id="@+id/titleWin"
+	    android:text="@string/congrats"
+	    android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        android:background="#1FD22B"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+	    />
+	
+	<TextView
+	    android:id="@+id/moves"
+	    android:text="@string/moves"
+	    android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:background="#107A2A"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+	    android:gravity="center" />
+	
+	<Button
+	    android:id="@+id/buttonNewGame"
+	    android:text="@string/newgame"
+	    android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+	    android:gravity="center" />
+	
+</LinearLayout>

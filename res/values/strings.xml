@@ -6,5 +6,8 @@
     <string name="action_settings">Settings</string>
     <string name="title">n-Puzzle</string>
     <string name="instruction">Select your image!</string>
+    <string name="congrats">Congratulations!</string>
+    <string name="moves">You solved the puzzle in ... moves!</string>
+    <string name="newgame">New Game</string>
 
 </resources>

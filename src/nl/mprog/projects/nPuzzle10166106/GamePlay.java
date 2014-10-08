@@ -20,6 +20,10 @@ import android.app.*;
 
 public class GamePlay extends ActionBarActivity
 {
+	private final long startTime = 4000;
+	private final long interval = 1000;
+	private TextView timertext;
+	final int EASY = 3;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) 
@@ -28,7 +32,7 @@ public class GamePlay extends ActionBarActivity
         setContentView(R.layout.gameplay);
   
         // find our ImageView in the layout
-        ImageView img = (ImageView)findViewById(R.id.image);
+        final ImageView img = (ImageView) findViewById(R.id.image);
         
         // retrieve the set of data passed to us by the intent
         Bundle extras = getIntent().getExtras();
@@ -41,58 +45,76 @@ public class GamePlay extends ActionBarActivity
         
         // put bitmap in ImageView
         img.setImageBitmap(bitmap);
-        
+     
         // get width and height of bitmap
-        int WIDTH = bitmap.getWidth();
-        int HEIGHT = bitmap.getHeight();
+        final int BITMAP_WIDTH = bitmap.getWidth();
+        final int BITMAP_HEIGHT = bitmap.getHeight();
         
-        // define bitmap coordinates
-        int x = 0;
-        int y = 0;
+        // create a scaled bitmap
+        final Bitmap bitmapScaled = Bitmap.createScaledBitmap(bitmap, BITMAP_WIDTH, BITMAP_HEIGHT, true);
         
-        // define table
-        TableLayout table = (TableLayout) findViewById(R.id.table);
-       
-        int row, col;
-        
-        // iterate over ImageViews in table
-        for (row = 0; row < 3; row++)
+        final RelativeLayout rl = (RelativeLayout) findViewById(R.id.relative);
+        timertext = (TextView) findViewById(R.id.timer);
+        CountDownTimer countdown = new CountDownTimer(startTime, interval)
         {
-        	// define new TableRow
-        	TableRow tr = new TableRow(this);
+        	public void onTick(long millisUntilFinished)
+        	{
+        		timertext.setText(" " + millisUntilFinished / 1000);
+        	}
         	
-        	for (col = 0; col < 3; col++)
-        	{	
-        		
-        		// divide bitmap in tiles and put them in ImageViews
-        		Bitmap tile = Bitmap.createBitmap(bitmap, x,y, WIDTH/3, HEIGHT/3);
-        		
-        		ImageView imgtile = (ImageView) findViewById(R.id.tile_0);
-        		imgtile.setImageBitmap(tile);
-            	
-        		// add views
-        	    tr.addView(imgtile);
-        	    table.addView(tr);
-        	        
-        	    // declare width and height of tiles
-        	    int tile_width = tile.getWidth();
-        	    int tile_height = tile.getHeight();
-        	        
-        	    // update coordinates for next tiles
-        	    x = x + tile_width;
-        	    y = y + tile_height;
-        	    
-        	    // remove ImageView to make a blank tile
-        	    if (row == 2 && col == 2)
-        	    {
-        	    	tr.removeView(imgtile);
-        	    }
-        	    
-        	    
-        	    
+        	public void onFinish()
+        	{
+        		timertext.setText("Start!");
+        		rl.removeView(img);
+        		createTiles(bitmapScaled, BITMAP_WIDTH, BITMAP_HEIGHT, EASY);
         	}	
-        }
-        
-        //
+        }.start();
+    }
+
+    protected void createTiles(Bitmap bitmap, int bitmap_width, int bitmap_height, int level)
+    {
+    	// define table
+    	TableLayout table = (TableLayout) findViewById(R.id.table);
+   
+    	// get width and height of screen
+    	// int SCREEN_WIDTH = getResources().getDisplayMetrics().widthPixels;
+    	// int SCREEN_HEIGHT = getResources().getDisplayMetrics().heightPixels;
+   
+    	// define bitmap coordinates
+    	int x = 0;
+    	int y = 0;
+    
+    	// define TableRow array
+    	TableRow tr[] = new TableRow[EASY];
+   
+    	// iterate over rows
+    	for (int i = 0; i < EASY; i++)
+    	{
+    		// add rows to table
+    		tr[i] = new TableRow(this);
+    		table.addView(tr[i]);
+    	
+    		// iterate over columns
+    		for (int j = 0; j < EASY; j++)
+    		{	
+    			// create bitmap tile
+    			Bitmap tile = Bitmap.createBitmap(bitmap, x,y, bitmap_width/level, bitmap_height/level);
+    			// Bitmap tile = Bitmap.createScaledBitmap(tiles[i][j], SCREEN_WIDTH/EASY, BITMAP_HEIGHT/EASY, true);
+    		
+    			// create new ImageView to display tiles
+    			ImageView imgtile = new ImageView(this);
+    		
+    			// put bitmap tile in ImageView
+    			imgtile.setImageBitmap(tile);
+    		
+    			// add ImageView with tile to TableRow
+    			tr[i].addView(imgtile);
+    		
+    			// TO DO: update x coordinate
+    		
+    		
+    		}
+    	}
     }
 }
+
