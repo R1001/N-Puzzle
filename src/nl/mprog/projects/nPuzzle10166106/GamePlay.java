@@ -53,8 +53,13 @@ public class GamePlay extends ActionBarActivity
         // create a scaled bitmap
         final Bitmap bitmapScaled = Bitmap.createScaledBitmap(bitmap, BITMAP_WIDTH, BITMAP_HEIGHT, true);
         
+        // find our relative id
         final RelativeLayout rl = (RelativeLayout) findViewById(R.id.relative);
+        
+        // find our timertext id
         timertext = (TextView) findViewById(R.id.timer);
+        
+        // start new CounTdownTimer
         CountDownTimer countdown = new CountDownTimer(startTime, interval)
         {
         	public void onTick(long millisUntilFinished)
@@ -73,7 +78,7 @@ public class GamePlay extends ActionBarActivity
 
     protected void createTiles(Bitmap bitmap, int bitmap_width, int bitmap_height, int level)
     {
-    	// define table
+    	// find our table id
     	TableLayout table = (TableLayout) findViewById(R.id.table);
    
     	// get width and height of screen
@@ -86,7 +91,7 @@ public class GamePlay extends ActionBarActivity
     
     	// define TableRow array
     	TableRow tr[] = new TableRow[EASY];
-   
+    	
     	// iterate over rows
     	for (int i = 0; i < EASY; i++)
     	{
@@ -110,7 +115,8 @@ public class GamePlay extends ActionBarActivity
     			// add ImageView with tile to TableRow
     			tr[i].addView(imgtile);
     		
-    			// TO DO: update x coordinate
+    			// TO DO: update x and y coordinate
+    			
     		
     		
     		}
