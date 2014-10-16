@@ -9,13 +9,17 @@
 
 package nl.mprog.projects.nPuzzle10166106;
 
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import android.support.v7.app.ActionBarActivity;
-import android.view.*;
 import android.os.*;
+import android.view.View;
 import android.widget.*;
 import android.graphics.*;
-import android.content.*;
-import android.app.*;
 
 
 public class GamePlay extends ActionBarActivity
@@ -25,6 +29,10 @@ public class GamePlay extends ActionBarActivity
 	private TextView timertext;
 	final int EASY = 3;
 	
+	private ArrayList<Bitmap> tileList;
+	private ArrayList<ImageView> viewList;
+	private ImageView[][] viewcache;
+	 
     @Override
     protected void onCreate(Bundle savedInstanceState) 
     {
@@ -41,17 +49,21 @@ public class GamePlay extends ActionBarActivity
         int resource = (int)extras.getLong("imageToDisplay");
 
         // load bitmap
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), resource);
+        final Bitmap bitmap = BitmapFactory.decodeResource(getResources(), resource);
         
         // put bitmap in ImageView
         img.setImageBitmap(bitmap);
      
         // get width and height of bitmap
-        final int BITMAP_WIDTH = bitmap.getWidth();
+        final float BITMAP_WIDTH = bitmap.getWidth();
         final int BITMAP_HEIGHT = bitmap.getHeight();
         
+        // get screen width and calculate the factor
+        final int SCREEN_WIDTH = getResources().getDisplayMetrics().widthPixels;
+        final int scaledHeight = (int)((SCREEN_WIDTH/BITMAP_WIDTH)*BITMAP_HEIGHT);
+        
         // create a scaled bitmap
-        final Bitmap bitmapScaled = Bitmap.createScaledBitmap(bitmap, BITMAP_WIDTH, BITMAP_HEIGHT, true);
+        final Bitmap bitmapScaled = Bitmap.createScaledBitmap(bitmap, SCREEN_WIDTH, scaledHeight, true);
         
         // find our relative id
         final RelativeLayout rl = (RelativeLayout) findViewById(R.id.relative);
@@ -69,57 +81,82 @@ public class GamePlay extends ActionBarActivity
         	
         	public void onFinish()
         	{
-        		timertext.setText("Start!");
+        		rl.removeView(timertext);
         		rl.removeView(img);
-        		createTiles(bitmapScaled, BITMAP_WIDTH, BITMAP_HEIGHT, EASY);
+        		bitmap.recycle();
+        		createTiles(bitmapScaled, SCREEN_WIDTH, scaledHeight, EASY);
         	}	
         }.start();
     }
-
+    
+    
     protected void createTiles(Bitmap bitmap, int bitmap_width, int bitmap_height, int level)
     {
     	// find our table id
     	TableLayout table = (TableLayout) findViewById(R.id.table);
-   
-    	// get width and height of screen
-    	// int SCREEN_WIDTH = getResources().getDisplayMetrics().widthPixels;
-    	// int SCREEN_HEIGHT = getResources().getDisplayMetrics().heightPixels;
-   
+    	
     	// define bitmap coordinates
     	int x = 0;
     	int y = 0;
-    
-    	// define TableRow array
-    	TableRow tr[] = new TableRow[EASY];
     	
+    	// define tile width and height
+    	int tilewidth= bitmap_width/level;
+    	int tileheight = bitmap_height/level;
+    	
+    	// define TableRow, bitmap tile and ImageView
+    	TableRow tr[] = new TableRow[level];
+		Bitmap tile = null;
+		ImageView imgtile;
+		viewList = new ArrayList<ImageView>();
     	// iterate over rows
-    	for (int i = 0; i < EASY; i++)
+    	for (int i = 0; i < level; i++)
     	{
     		// add rows to table
     		tr[i] = new TableRow(this);
     		table.addView(tr[i]);
-    	
+    		
     		// iterate over columns
-    		for (int j = 0; j < EASY; j++)
+    		for (int j = 0; j < level; j++)
     		{	
     			// create bitmap tile
-    			Bitmap tile = Bitmap.createBitmap(bitmap, x,y, bitmap_width/level, bitmap_height/level);
-    			// Bitmap tile = Bitmap.createScaledBitmap(tiles[i][j], SCREEN_WIDTH/EASY, BITMAP_HEIGHT/EASY, true);
-    		
-    			// create new ImageView to display tiles
-    			ImageView imgtile = new ImageView(this);
-    		
+    		    tile = Bitmap.createBitmap(bitmap, x,y, tilewidth, tileheight);
+    			
+    		    // create new ImageView to display tiles
+    		    imgtile = new ImageView(this);
+    			
     			// put bitmap tile in ImageView
     			imgtile.setImageBitmap(tile);
-    		
+    			
     			// add ImageView with tile to TableRow
     			tr[i].addView(imgtile);
-    		
-    			// TO DO: update x and y coordinate
     			
+    			// set padding on the left of and below the tile
+    			imgtile.setPadding(0, 0, 3, 3);
     		
-    		
+    			// update x coordinate
+    			x += tilewidth;
+    			viewList.add(imgtile);
+    			
+    			Collections.reverse(viewList);
+    			/*
+    			 *  create blank tile
+    			 */
+    			
+    			// create new cache array for ImageViews
+        		viewcache = new ImageView[level][level];
+        		
+        		// put ImageViews in array
+        		viewcache[i][j] = imgtile;
+        		
+        		// check position of ImageView to find the tile which has to be blank
+        		if (viewcache[i][j] == viewcache[level - 1][level - 1])
+        		{
+        			viewcache[level - 1][level - 1].setVisibility(View.INVISIBLE);
+        		}
     		}
+    		// set x coordinate to begin of the row and update y coordinate (go to next row)
+    		x = 0;
+    		y += tileheight;
     	}
     }
 }
