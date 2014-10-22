@@ -10,19 +10,18 @@
 package nl.mprog.projects.nPuzzle10166106;
 
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.*;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.*;
 import android.graphics.*;
 
 
-public class GamePlay extends ActionBarActivity
+public class GamePlay extends ActionBarActivity implements OnClickListener
 {
 	private final long startTime = 4000;
 	private final long interval = 1000;
@@ -31,7 +30,6 @@ public class GamePlay extends ActionBarActivity
 	
 	private ArrayList<Bitmap> tileList;
 	private ArrayList<ImageView> viewList;
-	private ImageView[][] viewcache;
 	 
     @Override
     protected void onCreate(Bundle savedInstanceState) 
@@ -105,9 +103,15 @@ public class GamePlay extends ActionBarActivity
     	
     	// define TableRow, bitmap tile and ImageView
     	TableRow tr[] = new TableRow[level];
+    	
+    	// declare Bitmap and ImageView
 		Bitmap tile = null;
 		ImageView imgtile;
+		
+		// create new array lists for ImageViews and Bitmaps
 		viewList = new ArrayList<ImageView>();
+		tileList = new ArrayList<Bitmap>();
+		
     	// iterate over rows
     	for (int i = 0; i < level; i++)
     	{
@@ -118,46 +122,89 @@ public class GamePlay extends ActionBarActivity
     		// iterate over columns
     		for (int j = 0; j < level; j++)
     		{	
-    			// create bitmap tile
-    		    tile = Bitmap.createBitmap(bitmap, x,y, tilewidth, tileheight);
-    			
     		    // create new ImageView to display tiles
     		    imgtile = new ImageView(this);
+
+    		    // add ImageView to array list
+    			viewList.add(imgtile);
     			
-    			// put bitmap tile in ImageView
-    			imgtile.setImageBitmap(tile);
+    			// set number as a tag to the ImageView
+    			imgtile.setTag(viewList.size() - 1);
+    			
+    			// set OnClickListener to ImageView
+    			imgtile.setOnClickListener(this);
     			
     			// add ImageView with tile to TableRow
     			tr[i].addView(imgtile);
     			
     			// set padding on the left of and below the tile
     			imgtile.setPadding(0, 0, 3, 3);
-    		
+    			
+    			// create n-1 tiles and create a blank tile too
+    			if (!(i == level - 1 && j == level - 1))
+    			{
+    				// create bitmap tile
+    				tile = Bitmap.createBitmap(bitmap, x,y, tilewidth, tileheight);
+    				
+    				// add Bitmap to array list
+    				tileList.add(tile);
+    			}
+    			
     			// update x coordinate
     			x += tilewidth;
-    			viewList.add(imgtile);
-    			
-    			Collections.reverse(viewList);
-    			/*
-    			 *  create blank tile
-    			 */
-    			
-    			// create new cache array for ImageViews
-        		viewcache = new ImageView[level][level];
-        		
-        		// put ImageViews in array
-        		viewcache[i][j] = imgtile;
-        		
-        		// check position of ImageView to find the tile which has to be blank
-        		if (viewcache[i][j] == viewcache[level - 1][level - 1])
-        		{
-        			viewcache[level - 1][level - 1].setVisibility(View.INVISIBLE);
-        		}
     		}
+    		
     		// set x coordinate to begin of the row and update y coordinate (go to next row)
     		x = 0;
     		y += tileheight;
     	}
+    	
+    	// reverse bitmap tiles to shuffle the loaded bitmap
+    	Collections.reverse(tileList);
+    	
+    	// put bitmap tiles from array list to corresponding ImageViews
+    	for (int i = 0; i < viewList.size() - 1; i++)
+    	{
+    		ImageView iv = viewList.get(i);
+    		iv.setImageBitmap(tileList.get(i));
+    	}
     }
+
+	@Override
+	public void onClick(View v) 
+	{
+		// swap tiles when clicked
+		swap(v, EASY);
+	}
+	
+	public void swap(View v, int level)
+	{
+		// convert tag to index integer
+		int indexClickedTile = (Integer) v.getTag();
+		
+		// update index of blank tile
+		int indexBlankTile = level*level - 1;
+		
+		// check if clicked tile is right next to the blank tile
+		if (indexClickedTile == indexBlankTile -+ level || indexClickedTile == indexBlankTile -+ 1)
+		{
+			// make view invisible
+			v.setVisibility(View.INVISIBLE);
+				
+			// declare bitmap tile for clicked bitmap
+			Bitmap clickedBitmap;
+				
+			// replace clicked bitmap tile to blank tile
+			ImageView blank = viewList.get(indexBlankTile);
+			clickedBitmap = tileList.get(indexClickedTile);
+			blank.setImageBitmap(clickedBitmap);
+			
+			// update index of blank tile
+			indexBlankTile = (Integer) v.getTag();
+		}
+		
+		// test toast
+		Toast.makeText(this,"index: " + indexClickedTile, Toast.LENGTH_SHORT).show();
+	}
 }
 
