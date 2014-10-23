@@ -18,6 +18,7 @@ import android.os.*;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.*;
+import android.content.Intent;
 import android.graphics.*;
 
 
@@ -27,6 +28,8 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
 	private final long interval = 1000;
 	private TextView timertext;
 	final int EASY = 3;
+	int moves = 0;
+	int indexBlankTile;
 	
 	private ArrayList<Bitmap> tileList;
 	private ArrayList<ImageView> viewList;
@@ -182,29 +185,54 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
 		// convert tag to index integer
 		int indexClickedTile = (Integer) v.getTag();
 		
-		// update index of blank tile
-		int indexBlankTile = level*level - 1;
-		
+		// check if puzzle has just started
+		if (moves == 0)
+		{
+			// set start index of blank tile
+			indexBlankTile = level*level - 1;
+		}
+			
 		// check if clicked tile is right next to the blank tile
 		if (indexClickedTile == indexBlankTile -+ level || indexClickedTile == indexBlankTile -+ 1)
-		{
-			// make view invisible
-			v.setVisibility(View.INVISIBLE);
-				
+		{	
 			// declare bitmap tile for clicked bitmap
 			Bitmap clickedBitmap;
-				
+			
 			// replace clicked bitmap tile to blank tile
 			ImageView blank = viewList.get(indexBlankTile);
 			clickedBitmap = tileList.get(indexClickedTile);
 			blank.setImageBitmap(clickedBitmap);
 			
-			// update index of blank tile
-			indexBlankTile = (Integer) v.getTag();
+			// make view invisible
+			v.setVisibility(View.INVISIBLE);
+			
+			// update moves
+			moves++;
+			
+			// update index of blank tile (clicked tile becomes blank tile)
+				indexBlankTile = (Integer) v.getTag();
 		}
 		
 		// test toast
-		Toast.makeText(this,"index: " + indexClickedTile, Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this,"index: " + indexClickedTile, Toast.LENGTH_SHORT).show();
+		Toast.makeText(this,"moves: " + moves, Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this,"blank: " + indexBlankTile, Toast.LENGTH_SHORT).show();
 	}
+
+	/*
+	public void win(View v)
+	{
+		if (indexView == indexBitmap)
+    	{
+			// create the intent to open our YouWin activity
+	        Intent youwin = new Intent(this, YouWin.class);
+	        	
+	        // pass a key:value pair into the 'extra' bundle
+	        youwin.putExtra("AmountOfMoves", moves);
+	        	
+	        // start YouWin activity
+	        startActivity(youwin);
+		}
+	} */
 }
 
