@@ -1,39 +1,50 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * File:      YouWin.java
+ * 
+ * Name:      Rick Bijsterveld
+ * Studentnr: 10166106
+ * E-mail:    rickbijsterveld@hotmail.com
+ * 
+ * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 package nl.mprog.projects.nPuzzle10166106;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.os.*;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.*;
-import android.graphics.*;
+import android.content.Intent;
 
 
-public class YouWin extends ActionBarActivity {
+public class YouWin extends ActionBarActivity implements OnClickListener
+{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) 
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.youwin);
+        
+        // retrieve the set of data passed to us by the intent
+        Bundle extras = getIntent().getExtras();
+        int moves = (int)extras.getLong("AmountOfMoves");
+        
+        // set Button and onClickListener
+        Button newgame = (Button) findViewById(R.id.buttonNewGame);
+        newgame.setOnClickListener(this);
+        
+        // pass moves into TextView
+        TextView movesText = (TextView) findViewById(R.id.numbermoves);
+        movesText.setText(String.valueOf(moves));
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.game_play, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+	@Override
+	public void onClick(View v) {
+		// create the intent to open our ImageSelection activity
+	    Intent imageSelection = new Intent(this, ImageSelection.class);
+	        	
+	    // start ImageSelection activity
+	    startActivity(imageSelection);
+	}
 }

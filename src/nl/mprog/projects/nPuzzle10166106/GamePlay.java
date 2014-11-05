@@ -15,11 +15,14 @@ import java.util.Collections;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.*;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.*;
 import android.content.Intent;
 import android.graphics.*;
+import android.graphics.drawable.BitmapDrawable;
 
 
 public class GamePlay extends ActionBarActivity implements OnClickListener
@@ -27,7 +30,7 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
 	private final long startTime = 4000;
 	private final long interval = 1000;
 	private TextView timertext;
-	final int EASY = 3;
+	int EASY = 3;
 	int moves = 0;
 	int indexBlankTile;
 	
@@ -73,7 +76,7 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
         timertext = (TextView) findViewById(R.id.timer);
         
         // start new CounTdownTimer
-        CountDownTimer countdown = new CountDownTimer(startTime, interval)
+        new CountDownTimer(startTime, interval)
         {
         	public void onTick(long millisUntilFinished)
         	{
@@ -132,7 +135,7 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
     			viewList.add(imgtile);
     			
     			// set number as a tag to the ImageView
-    			imgtile.setTag(viewList.size() - 1);
+    			imgtile.setTag(R.id.key_view_position, viewList.size() - 1);
     			
     			// set OnClickListener to ImageView
     			imgtile.setOnClickListener(this);
@@ -166,10 +169,12 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
     	Collections.reverse(tileList);
     	
     	// put bitmap tiles from array list to corresponding ImageViews
-    	for (int i = 0; i < viewList.size() - 1; i++)
+    	int size = viewList.size() - 1;
+    	for (int i = 0; i < size; i++)
     	{
-    		ImageView iv = viewList.get(i);
-    		iv.setImageBitmap(tileList.get(i));
+    		ImageView imageView = viewList.get(i);
+    		imageView.setImageBitmap(tileList.get(i));
+    		imageView.setTag(R.id.key_bitmap, size - i);
     	}
     }
 
@@ -178,12 +183,15 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
 	{
 		// swap tiles when clicked
 		swap(v, EASY);
+		
+		// check winning conditions
+		win();
 	}
 	
 	public void swap(View v, int level)
 	{
 		// convert tag to index integer
-		int indexClickedTile = (Integer) v.getTag();
+		int indexClickedTile = (Integer) v.getTag(R.id.key_view_position);
 		
 		// check if puzzle has just started
 		if (moves == 0)
@@ -191,48 +199,127 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
 			// set start index of blank tile
 			indexBlankTile = level*level - 1;
 		}
-			
+		
 		// check if clicked tile is right next to the blank tile
-		if (indexClickedTile == indexBlankTile -+ level || indexClickedTile == indexBlankTile -+ 1)
-		{	
+		if (indexClickedTile == indexBlankTile - level || indexClickedTile == indexBlankTile + level || indexClickedTile == indexBlankTile - 1 || indexClickedTile == indexBlankTile + 1)
+		{
+			// check for side grid issues
+			for (int i = 1; i <= level - 2; i++)
+			{
+				// check for blank tile on the left side between the corners
+				if (indexBlankTile == level * i && indexClickedTile == indexBlankTile - 1)
+				{
+					return;
+				}
+				// check for blank tile on the right side between the corners
+				if (indexBlankTile == level * i + level - 1 && indexClickedTile == indexBlankTile + 1)
+				{
+					return;
+				}
+			}
+			
+			// check for blank tile in the right upper corner
+			if (indexBlankTile == level - 1 && indexClickedTile == indexBlankTile + 1)
+			{
+				return;
+			}
+			// check for blank tile in the left lower corner
+			if (indexBlankTile == level * (level - 1) && indexClickedTile == indexBlankTile - 1)
+			{
+				return;
+			}
+
 			// declare bitmap tile for clicked bitmap
 			Bitmap clickedBitmap;
 			
-			// replace clicked bitmap tile to blank tile
-			ImageView blank = viewList.get(indexBlankTile);
-			clickedBitmap = tileList.get(indexClickedTile);
-			blank.setImageBitmap(clickedBitmap);
+			// declare clicked ImageView
+			ImageView clicked = (ImageView) v;
 			
-			// make view invisible
-			v.setVisibility(View.INVISIBLE);
+			// replace clicked bitmap tile to blank tile and vice versa
+			ImageView blank = viewList.get(indexBlankTile);
+			clickedBitmap = ((BitmapDrawable) clicked.getDrawable()).getBitmap();
+			blank.setImageBitmap(clickedBitmap);
+			clicked.setImageBitmap(null);
 			
 			// update moves
 			moves++;
 			
 			// update index of blank tile (clicked tile becomes blank tile)
-				indexBlankTile = (Integer) v.getTag();
+			indexBlankTile = (Integer) v.getTag(R.id.key_view_position);
 		}
 		
 		// test toast
 		//Toast.makeText(this,"index: " + indexClickedTile, Toast.LENGTH_SHORT).show();
-		Toast.makeText(this,"moves: " + moves, Toast.LENGTH_SHORT).show();
-		//Toast.makeText(this,"blank: " + indexBlankTile, Toast.LENGTH_SHORT).show();
+		//Toast.makeText(this,"moves: " + moves, Toast.LENGTH_SHORT).show();
+		// Toast.makeText(this,"blank: " + indexBlankTile, Toast.LENGTH_SHORT).show();
 	}
 
-	/*
-	public void win(View v)
+	
+	public void win()
 	{
-		if (indexView == indexBitmap)
-    	{
-			// create the intent to open our YouWin activity
-	        Intent youwin = new Intent(this, YouWin.class);
-	        	
-	        // pass a key:value pair into the 'extra' bundle
-	        youwin.putExtra("AmountOfMoves", moves);
-	        	
-	        // start YouWin activity
-	        startActivity(youwin);
+		for (int i = 0; i < viewList.size() - 1; i++)
+		{
+			ImageView view = viewList.get(i);
+			int bitmapPosition = (Integer) view.getTag(R.id.key_bitmap);
+			int viewPosition = (Integer) view.getTag(R.id.key_view_position);
+			if (bitmapPosition != viewPosition)
+			{
+				//Toast.makeText(this, "Bitmap: "+bitmapPosition, 500).show();
+				//Toast.makeText(this, "View: "+viewPosition, 500).show();
+				return;
+			}
 		}
-	} */
+		
+		// create the intent to open our YouWin activity
+	    Intent youWin = new Intent(this, YouWin.class);
+	        	
+	    // pass a key:value pair into the 'extra' bundle
+	    youWin.putExtra("AmountOfMoves", moves);
+	        	
+	    // start YouWin activity
+	    startActivity(youWin);
+	}
+	
+	@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.game_play, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) 
+    {
+        // check which menu item has been clicked
+        switch (item.getItemId())
+        {
+        	case R.id.level:
+        		return true;
+        		
+        	case R.id.reset:
+        		// get current GamePlay Intent
+        		Intent gamePlay = getIntent();
+        		
+        		// finish GamePlay intent
+        		finish();
+        		
+        		// restart this intent
+        		startActivity(gamePlay);
+        		
+        		return true;
+        		
+        	case R.id.quit:
+        		// create the intent to open our ImageSelection activity
+        	    Intent imageSelection = new Intent(this, ImageSelection.class);
+        	    
+        	    // start ImageSelection activity
+        	    startActivity(imageSelection);
+        	    
+        		return true;
+        		
+        	default:
+        		return super.onOptionsItemSelected(item);
+        }
+    }
 }
 
