@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.*;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.*;
 import android.graphics.drawable.BitmapDrawable;
 
@@ -93,6 +94,28 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
         }.start();
     }
     
+    public void onResume()
+    {
+    	// get saved preferences
+    	SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+    	prefs.getInt("AmountOfMoves", moves);
+    	prefs.getInt("level", EASY);
+    	prefs.getInt("tilePosition", R.id.key_bitmap);
+    }
+    
+    public void onPause()
+    {
+    	super.onPause();
+    	
+    	// build preferences object
+    	SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+    	SharedPreferences.Editor editor = prefs.edit();
+    	editor.putInt("AmountOfMoves", moves);
+    	editor.putInt("level", EASY);
+    	editor.putInt("tilePosition", R.id.key_bitmap);
+    	
+    	editor.commit();
+    }
     
     protected void createTiles(Bitmap bitmap, int bitmap_width, int bitmap_height, int level)
     {
@@ -223,6 +246,7 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
 			{
 				return;
 			}
+			
 			// check for blank tile in the left lower corner
 			if (indexBlankTile == level * (level - 1) && indexClickedTile == indexBlankTile - 1)
 			{
@@ -294,6 +318,7 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
         switch (item.getItemId())
         {
         	case R.id.level:
+        		
         		return true;
         		
         	case R.id.reset:
