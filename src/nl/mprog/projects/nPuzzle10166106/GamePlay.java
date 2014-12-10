@@ -95,6 +95,7 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
         }.start();
     }
     
+    /* SAVING STATE? IS DIT DE GOEDE MANIER? */
     public void onResume()
     {
     	super.onResume();
@@ -205,7 +206,6 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
     		imageView.setTag(R.id.key_bitmap, size - i);
     		orderedList.add(i);
     	}
-    	
     }
 
 	@Override
@@ -290,20 +290,19 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
 	{
 		for (int i = 0; i < viewList.size() - 1; i++)
 		{
-		ImageView view = viewList.get(i);
-		int bitmapPosition = (Integer) view.getTag(R.id.key_bitmap);
-		//int viewPosition = (Integer) view.getTag(R.id.key_view_position);
-		for (int j = 0; j <= orderedList.size(); j++)
-		{
-			if (orderedList.get(j) != bitmapPosition)
+			ImageView view = viewList.get(i);
+			int bitmapPosition = (Integer) view.getTag(R.id.key_bitmap);
+			//int viewPosition = (Integer) view.getTag(R.id.key_view_position);
+			for (int j = 0; j <= orderedList.size(); j++)
 			{
-				// Toast.makeText(this, "Bitmap: "+bitmapPosition, 500).show();
-				// Toast.makeText(this, "Volgorde: "+orderedList.size(), 500).show();
-				return false;
+				if (orderedList.get(j) != bitmapPosition)
+				{
+					// Toast.makeText(this, "Bitmap: "+bitmapPosition, 500).show();
+					// Toast.makeText(this, "Volgorde: "+orderedList.size(), 500).show();
+					return false;
+				}
 			}
 		}
-		}
-		
 		
 		// create the intent to open our YouWin activity
 	    Intent youWin = new Intent(this, YouWin.class);
@@ -314,7 +313,9 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
 	    // start YouWin activity
 	    startActivity(youWin);
 	    
+	    // finish current activity
 	    finish();
+	    
 	    return true;
 	}
 	

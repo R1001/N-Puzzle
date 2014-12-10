@@ -54,7 +54,4 @@ public class ImageSelection extends ActionBarActivity implements OnItemClickList
     	adapter.recycleBitmaps();
     	super.onStop();
     }
-    
-    
- 
 }
