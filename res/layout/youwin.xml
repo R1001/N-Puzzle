@@ -1,5 +1,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#107A2A"
+	android:gravity="center" >
+    
 	<TextView
 	    android:id="@+id/titleWin"
 	    android:text="@string/congrats"
@@ -9,24 +14,47 @@
         android:background="#1FD22B"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-	    />
+        android:gravity="center" />
+	
+	<TextView
+	    android:id="@+id/movesintro"
+	    android:text="@string/movesintro"
+	    android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:background="#107A2A"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+	    android:gravity="center" 
+	    android:layout_weight="1" />
+	
+	<TextView
+	    android:id="@+id/numbermoves"
+	    android:textColor="#FFFFFF"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        android:background="#107A2A"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+	    android:gravity="center" />
 	
 	<TextView
 	    android:id="@+id/moves"
 	    android:text="@string/moves"
 	    android:textColor="#FFFFFF"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:background="#107A2A"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-	    android:gravity="center" />
+        android:layout_height="wrap_content"
+	    android:gravity="center"
+	    android:layout_weight="1" />
 	
 	<Button
 	    android:id="@+id/buttonNewGame"
 	    android:text="@string/newgame"
-	    android:layout_width="fill_parent"
+	    android:textSize="20sp"
+	    android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-	    android:gravity="center" />
+        android:layout_gravity="center|bottom"
+        android:layout_weight="0" />
 	
 </LinearLayout>

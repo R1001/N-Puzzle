@@ -2,12 +2,26 @@
 <resources>
 
     <string name="app_name">nPuzzle10166106</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    
+     <!-- ImageSelection strings  -->
     <string name="title">n-Puzzle</string>
     <string name="instruction">Select your image!</string>
+    
+     <!-- YouWin strings  -->
     <string name="congrats">Congratulations!</string>
-    <string name="moves">You solved the puzzle in ... moves!</string>
+    <string name="movesintro">You solved the puzzle in</string>
+    <string name="moves">moves!</string>
     <string name="newgame">New Game</string>
+    
+    <!-- Menu strings -->
+    <string name="level">Change level</string>
+    <string name="reset">Reset</string>
+    <string name="quit">Quit game</string>
+    <string name="titlelevel">Choose your level</string>
+    
+    <!-- Level strings -->
+    <string name="easy">Easy (3x3)</string>
+    <string name="medium">Medium (4x4)</string>
+    <string name="hard">Hard (5x5)</string>
 
 </resources>

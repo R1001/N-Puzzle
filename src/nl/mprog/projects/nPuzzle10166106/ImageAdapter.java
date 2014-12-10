@@ -107,10 +107,25 @@ public class ImageAdapter extends BaseAdapter
 		
 			// store the resized thumb in a cache so we don't have to re-generate it
 			cache[position] = thumb;
+			
 		}
-		// use the resized image we have in cache
+		
+		// use the resized image we have in cache 
 		imgView.setImageBitmap(cache[position]);
 		
-		return imgView;	
+		return imgView;
+	}
+	
+	public void recycleBitmaps()
+	{
+		for (int i = 0; i < cache.length; i++)
+		{
+			Bitmap b = cache[i];
+			if (b != null)
+			{
+				b.recycle();
+				cache[i] = null;
+			}
+		}
 	}
 }

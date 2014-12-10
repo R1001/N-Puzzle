@@ -37,7 +37,8 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
 	
 	private ArrayList<Bitmap> tileList;
 	private ArrayList<ImageView> viewList;
-	 
+	private ArrayList<Integer> orderedList;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) 
     {
@@ -96,6 +97,7 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
     
     public void onResume()
     {
+    	super.onResume();
     	// get saved preferences
     	SharedPreferences prefs = getPreferences(MODE_PRIVATE);
     	prefs.getInt("AmountOfMoves", moves);
@@ -191,14 +193,19 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
     	// reverse bitmap tiles to shuffle the loaded bitmap
     	Collections.reverse(tileList);
     	
-    	// put bitmap tiles from array list to corresponding ImageViews
+    	// create integer ArrayList
+    	orderedList = new ArrayList<Integer>();
+    	
+    	// put bitmap tiles from array list to corresponding ImageViews and update integer ArrayList
     	int size = viewList.size() - 1;
     	for (int i = 0; i < size; i++)
     	{
     		ImageView imageView = viewList.get(i);
     		imageView.setImageBitmap(tileList.get(i));
     		imageView.setTag(R.id.key_bitmap, size - i);
+    		orderedList.add(i);
     	}
+    	
     }
 
 	@Override
@@ -208,7 +215,7 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
 		swap(v, EASY);
 		
 		// check winning conditions
-		win();
+		winCheck();
 	}
 	
 	public void swap(View v, int level)
@@ -272,27 +279,31 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
 			indexBlankTile = (Integer) v.getTag(R.id.key_view_position);
 		}
 		
-		// test toast
-		//Toast.makeText(this,"index: " + indexClickedTile, Toast.LENGTH_SHORT).show();
-		//Toast.makeText(this,"moves: " + moves, Toast.LENGTH_SHORT).show();
+		// test toasts
+		// Toast.makeText(this,"index: " + indexClickedTile, Toast.LENGTH_SHORT).show();
+		// Toast.makeText(this,"moves: " + moves, Toast.LENGTH_SHORT).show();
 		// Toast.makeText(this,"blank: " + indexBlankTile, Toast.LENGTH_SHORT).show();
 	}
 
-	
-	public void win()
+	/* WINNING CONDITIONS WERKEN NOG NIET */
+	public boolean winCheck()
 	{
 		for (int i = 0; i < viewList.size() - 1; i++)
 		{
-			ImageView view = viewList.get(i);
-			int bitmapPosition = (Integer) view.getTag(R.id.key_bitmap);
-			int viewPosition = (Integer) view.getTag(R.id.key_view_position);
-			if (bitmapPosition != viewPosition)
+		ImageView view = viewList.get(i);
+		int bitmapPosition = (Integer) view.getTag(R.id.key_bitmap);
+		//int viewPosition = (Integer) view.getTag(R.id.key_view_position);
+		for (int j = 0; j <= orderedList.size(); j++)
+		{
+			if (orderedList.get(j) != bitmapPosition)
 			{
-				//Toast.makeText(this, "Bitmap: "+bitmapPosition, 500).show();
-				//Toast.makeText(this, "View: "+viewPosition, 500).show();
-				return;
+				// Toast.makeText(this, "Bitmap: "+bitmapPosition, 500).show();
+				// Toast.makeText(this, "Volgorde: "+orderedList.size(), 500).show();
+				return false;
 			}
 		}
+		}
+		
 		
 		// create the intent to open our YouWin activity
 	    Intent youWin = new Intent(this, YouWin.class);
@@ -302,6 +313,9 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
 	        	
 	    // start YouWin activity
 	    startActivity(youWin);
+	    
+	    finish();
+	    return true;
 	}
 	
 	@Override
@@ -318,7 +332,7 @@ public class GamePlay extends ActionBarActivity implements OnClickListener
         switch (item.getItemId())
         {
         	case R.id.level:
-        		
+        		/* HOE HIER LEVELS IMPLEMENTEREN? */
         		return true;
         		
         	case R.id.reset:

@@ -19,6 +19,7 @@ import android.content.*;
 
 public class ImageSelection extends ActionBarActivity implements OnItemClickListener
 {
+	ImageAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) 
@@ -28,8 +29,9 @@ public class ImageSelection extends ActionBarActivity implements OnItemClickList
         
         // find our grid and assign our new ImageAdapter class as the adapter for it,
         // along with an onItemClickListener
-        GridView gridview = (GridView)findViewById(R.id.gridview);
-        gridview.setAdapter(new ImageAdapter(this));
+        GridView gridview = (GridView) findViewById(R.id.gridview);
+        adapter = new ImageAdapter(this);
+        gridview.setAdapter(adapter);
         gridview.setOnItemClickListener(this);
     }
         
@@ -44,5 +46,15 @@ public class ImageSelection extends ActionBarActivity implements OnItemClickList
         	
         // start GamePlay activity
         startActivity(puzzle);
-    }		
+    }	
+    
+    @Override
+    protected void onStop() 
+    {
+    	adapter.recycleBitmaps();
+    	super.onStop();
+    }
+    
+    
+ 
 }
